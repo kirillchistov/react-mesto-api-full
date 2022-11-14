@@ -1,0 +1,5 @@
+.popup__error {
+  padding-top: 10px;
+  color: red;
+  display: block;
+}

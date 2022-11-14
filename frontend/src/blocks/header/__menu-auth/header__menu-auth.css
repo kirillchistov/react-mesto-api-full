@@ -1,0 +1,19 @@
+.header__menu-auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: middle;
+    column-gap: 24px;
+}
+  
+  @media screen and (max-width: 768px) {
+    .header__menu-auth {
+      width: 100%;
+      padding: 40px 0;
+      flex-direction: column;
+      column-gap: none;
+      row-gap: 18px;
+      align-items: center;
+      order: -1;
+      border-bottom: 1px solid #545454;
+    }
+  }

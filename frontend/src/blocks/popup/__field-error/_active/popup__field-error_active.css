@@ -1,0 +1,12 @@
+.popup__field-error_active {
+  visibility: visible;
+  opacity: 1;
+  min-height: 37px;
+  margin: 0;
+  padding: 3px 0 0 0;
+  box-sizing: border-box;
+  color: red;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.25;  
+}

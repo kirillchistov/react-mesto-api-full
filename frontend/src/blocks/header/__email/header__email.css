@@ -1,0 +1,27 @@
+.header__email {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-family: 'Inter';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.header__email:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 767px) {
+  .header__email {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+  
+@media screen and (max-width: 424px) {
+  .header__email {
+    display: none;
+  }
+}

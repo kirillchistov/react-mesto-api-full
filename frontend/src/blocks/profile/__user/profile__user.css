@@ -1,0 +1,14 @@
+.profile__user {
+  max-width: 336px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .profile__user {
+    margin: 0;
+    padding: 0;
+  }
+}

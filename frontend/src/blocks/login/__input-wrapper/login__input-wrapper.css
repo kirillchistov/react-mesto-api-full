@@ -1,0 +1,13 @@
+.login__input-wrapper {
+  height: 92px;
+  margin: 50px 0 216px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .login__input-wrapper {
+    margin: 40px 0 173px;
+  }
+}

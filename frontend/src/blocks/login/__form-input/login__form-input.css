@@ -1,0 +1,16 @@
+.login__form-input {
+  margin-bottom: 50px;
+  border: none;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+  
+.login__form-input:focus {
+  outline: 1px solid #fff;
+}

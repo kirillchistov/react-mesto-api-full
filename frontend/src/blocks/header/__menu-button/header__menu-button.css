@@ -1,0 +1,35 @@
+.header__menu-button {
+  display: none;
+  transition: opacity .5s linear;
+  cursor: pointer;
+}
+
+.header__menu-button:hover {
+  opacity: .6;
+}
+
+.header__menu-button:active {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu-button {
+    width: 30px;
+    height: 30px;
+    display: block;
+    border: none;
+    background: transparent;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../../../images/header-menu.svg);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__menu-button {
+    width: 20px;
+    height: 20px;
+  }  
+}

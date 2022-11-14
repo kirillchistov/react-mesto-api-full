@@ -1,0 +1,12 @@
+.popup__field-error {
+  width: 100%;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  font-size: 10px;
+  line-height: 15px;
+  color: #f00;
+  border-bottom-color: red;
+  opacity: 0;
+  transition: 0.3s;
+}

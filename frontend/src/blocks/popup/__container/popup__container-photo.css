@@ -1,0 +1,22 @@
+.popup__container-photo {
+  max-width: 75vw;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  background: none;
+  border-radius: 0px;
+  box-sizing: border-box;
+  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
+  -webkit-transition: visibility 0.5s, opacity 0.5s ease;
+  -moz-transition: visibility 0.5s, opacity 0.5s ease;
+  -o-transition: visibility 0.5s, opacity 0.5s ease;
+}
+  
+@media screen and (max-width: 450px) {
+  .popup__container-photo {
+    max-width: 282px;
+    margin: 19px;
+    padding: 0;
+  }
+}

@@ -1,0 +1,8 @@
+.popup__label {
+  width: 100%;
+  padding: 0;
+  margin: 22px 0 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

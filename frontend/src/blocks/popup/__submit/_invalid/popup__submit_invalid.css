@@ -1,0 +1,29 @@
+.popup__submit_invalid {
+    background: #fff;
+    box-sizing: border-box;
+    transition: all 0.5s;
+    opacity: 1;
+    cursor: not-allowed;
+    text-align: center;
+    color: #e5e5e5;
+    font-family: "Inter", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    justify-content: center;
+}
+
+.popup__submit_invalid:hover {
+    background: #fff;
+    color: #000;
+    opacity: .2;
+    cursor: not-allowed;
+  }
+
+@media screen and (max-width: 767px) {
+    .popup__submit_inactive {
+        width: 238px;
+        margin: 0 auto 25px;
+    }
+}
