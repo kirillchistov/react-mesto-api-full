@@ -3,7 +3,10 @@
 # [Проект Mesto фронтенд + бэкенд](https://github.com/kirillchistov/react-mesto-api-full)
 
 * Приложение с авторизацией и регистрацией пользователей, операциями с карточками и пользователями.
-* [Сайт, размещенный на Яндекс.Облаке](https://montecristo.nomoredomains.icu)
+* [Фронтенд в Яндекс.Облаке](https://montecristo.nomoredomains.icu)
+* [Бэкенд в Яндекс.Облаке](https://kirmesto.nomoredomains.icu)
+* IP-адрес: 62.84.123.141
+
 * [Кирилл Чистов](https://github.com/kirillchistov), студент веб-факультета "Я.Практикум" (когорта 47)
 
 ** Стек технологий **
@@ -30,8 +33,8 @@
 * [x] `/utils` - папка с константами, regex и обработкой ошибок
 * [x] `/middlewares` - папка с middleware-компонентами (в т.ч. валидацией)
 
-## Бейджи статуса тестов
-[![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-13-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-13-sprint.yml) [![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml)
+## Бейджи статуса тестов ПР14
+[![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml)
 
 ## Запуск проекта
 `npm run start` — запускает сервер   

@@ -1,3 +1,4 @@
+/*
 //  Константы с кодами ошибок также есть в отдельных классах в ./errors  //
 const INCORRECT_DATA_ERROR = 400; // некорректные данные  //
 const UNAUTHORIZED_ERROR = 401; // ошибка авторизации  //
@@ -14,7 +15,18 @@ module.exports = {
   CONFLICT_ERROR,
   DEFAULT_ERROR,
 };
+*/
+//  ключик пока держим здесь - удалим перед ревью  //
+/*
+module.exports.JWT_SECRET = '7f4efea4d68fc1c806f72ba452efd8106b6a0cb48f523ee4332ebe70a704274f';
+*/
 
-//  ключик пока держим здесь  //
+require('dotenv').config();
 
-module.exports.TOKEN_ENCRYPT_KEY = '7f4efea4d68fc1c806f72ba452efd8106b6a0cb48f523ee4332ebe70a704274f';
+const { NODE_ENV, JWT_SECRET } = process.env;
+
+function getJWTSecretKey() {
+  return NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret';
+}
+
+module.exports = getJWTSecretKey;

@@ -1,9 +1,9 @@
 
-# [Проект Mesto фронтенд + бэкенд](https://github.com/kirillchistov/express-mesto-gha)
+# [Проект Mesto фронтенд + бэкенд](https://github.com/kirillchistov/react-mesto-api-full)
 * [Кирилл Чистов](https://github.com/kirillchistov), студент веб-факультета "Я.Практикум" (когорта 47)
 
 ## Бейджи статуса тестов
-[![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-13-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-13-sprint.yml) [![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml)
+[![Tests](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/kirillchistov/express-mesto-gha/actions/workflows/tests-14-sprint.yml)
 
 ## Навигация по проекту
 * [x] `app.js` — точка входа 

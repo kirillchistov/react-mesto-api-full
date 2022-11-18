@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 //  const cors = require('cors');  //
-const handleCors = require('./middlewares/handleCors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const handleCors = require('./middlewares/handleCors');
 const router = require('./routes');
 const handleErrors = require('./utils/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use(requestLogger);
 app.use('/', router);
 //  15.1 подключаем логгер ошибок  //
-app.use(errorLogger); 
+app.use(errorLogger);
 app.use(errors());
 app.use(handleErrors);
 
