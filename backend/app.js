@@ -35,6 +35,12 @@ app.use(express.json());
 app.use(cookieParser());
 //  15.1 подключаем логгер запросов  //
 app.use(requestLogger);
+//  15.8 подключаем краш-тест сервера  //
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use('/', router);
 //  15.1 подключаем логгер ошибок  //
 app.use(errorLogger);

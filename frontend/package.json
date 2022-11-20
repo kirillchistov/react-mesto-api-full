@@ -1,5 +1,5 @@
 {
-  "name": "react-mesto-auth",
+  "name": "react-mesto-api-full",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,7 +17,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "ghDeploy": "gh-pages -d build",
+    "deploy": "npm run build && scp -r ./build/* kirillchistov@62.84.123.141:/home/kirillchistov/react-mesto-api-full/frontend/build"
+
   },
   "eslintConfig": {
     "extends": [
@@ -37,7 +41,7 @@
       "last 1 safari version"
     ]
   },
-  "description": "### Обзор * Интро * Стек * Макет * Верстка * Задачи ПР12 * Доработки / Backlog",
+  "description": "### Обзор * Интро * Стек * Макет * Верстка * Задачи ПР15 * Доработки / Backlog",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -49,8 +53,9 @@
   "bugs": {
     "url": "https://github.com/kirillchistov/react-mesto-auth/issues"
   },
-  "homepage": "https://github.com/kirillchistov/react-mesto-auth#readme",
+  "homepage": "./",
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "gh-pages": "^4.0.0"
   }
 }

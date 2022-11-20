@@ -4,7 +4,9 @@
 
 * Приложение с авторизацией и регистрацией пользователей, операциями с карточками и пользователями.
 * [Фронтенд в Яндекс.Облаке](https://montecristo.nomoredomains.icu)
+[15.3](https://github.com/kirillchistov/react-mesto-api-full/issues/3)
 * [Бэкенд в Яндекс.Облаке](https://kirmesto.nomoredomains.icu)
+[15.3](https://github.com/kirillchistov/react-mesto-api-full/issues/3)
 * IP-адрес: 62.84.123.141
 
 * [Кирилл Чистов](https://github.com/kirillchistov), студент веб-факультета "Я.Практикум" (когорта 47)
@@ -15,7 +17,8 @@
 - Back-end (Node.js, MongoDB, Express)
 - Git, WebPack, Babel и т.д.
 
-## Навигация по [front-end](https://github.com/kirillchistov/react-mesto-api-full/tree/main/frontend)
+## Навигация по [front-end](https://github.com/kirillchistov/react-mesto-api-full/tree/main/frontend) [15.2](https://github.com/kirillchistov/react-mesto-api-full/issues/2)
+
 * [x] `index.js` — точка входа 
 * [x] `/blocks` — стили разметки Nested БЭМ 
 * [x] `/components` — ключевые компоненты (вкл., app.jsx) 

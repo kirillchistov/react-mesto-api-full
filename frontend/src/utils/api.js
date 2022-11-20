@@ -99,9 +99,11 @@ export default class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-47',
+//    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-47',  //
+    baseUrl: 'https://kirmesto.nomoredomains.icu',
+    credentials: 'include',
     headers: {
-        authorization: '7a2b5691-9c91-496f-b370-fd3cc1ce7210',
+        //  authorization: '7a2b5691-9c91-496f-b370-fd3cc1ce7210',  //
         'Content-Type': 'application/json'
     }
 });

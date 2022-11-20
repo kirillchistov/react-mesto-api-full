@@ -3,7 +3,8 @@
 //  Если есть токен, запускаем Authorization  //
 //  Если fetch вернул data, возвращаем json  //
 
-const BASE_URL = 'https://auth.nomoreparties.co';
+//  const BASE_URL = 'https://auth.nomoreparties.co';  //
+const BASE_URL = 'https://kirmesto.nomoredomains.icu';  
 
 const request = async ({
   url,
