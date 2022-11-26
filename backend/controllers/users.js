@@ -128,11 +128,7 @@ module.exports.login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
-      return res.cookie('authorization', token, {
-        httpOnly: true,
-        maxAge: 3600000 * 24 * 7,
-        sameSite: true,
-      }).send({ token });
+      return res.status(200).send({ token });
     })
     .catch((err) => {
       next(err);
@@ -140,6 +136,7 @@ module.exports.login = (req, res, next) => {
 };
 
 //  Контроллер логаута  //
-module.exports.logout = (req, res) => {
-  res.clearCookie('token').send({ message: 'Ваша сессия завершена' });
+/* module.exports.logout = (req, res) => {
+//  res.clearCookie('token').send({ message: 'Ваша сессия завершена' });  //
 };
+*/

@@ -99,7 +99,7 @@ const App = () => {
         .getContent(jwt)
         .then((data) => {
           if (data) {
-            setEmail(data.data.email);
+            setEmail(data.email);
             setLoggedIn(true);
             history.push("/");
           }
@@ -127,6 +127,7 @@ const App = () => {
         api.getCards()
       ])
         .then(([currentUser, cards]) => {
+          console.log(`${loggedIn}, CurrentUser: ${currentUser}, cards: ${cards}`);
           setCurrentUser(currentUser);
           setCards(cards);
           history.push('/');

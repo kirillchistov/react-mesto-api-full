@@ -4,7 +4,8 @@
 //  Если fetch вернул data, возвращаем json  //
 
 //  const BASE_URL = 'https://auth.nomoreparties.co';  //
-const BASE_URL = 'https://kirmesto.nomoredomains.icu';  
+//  const BASE_URL = 'https://kirmesto.nomoredomains.icu';  //
+const BASE_URL = 'http://localhost:3001';  
 
 const request = async ({
   url,
@@ -16,9 +17,9 @@ const request = async ({
     method,
     headers: {
       'Content-Type': 'application/json',
-      ...!!token && { 'Authorization': `Bearer ${token}` },
+      'Authorization': `Bearer ${token}`,
     },
-    ...!!data && { body: JSON.stringify(data) },
+    body: JSON.stringify(data),
   });
   const json = await response.json();
   return response.ok ? json : Promise.reject(json.message);

@@ -7,7 +7,7 @@ const IncorrectDataError = require('../utils/errors/incorrect-data-error');
 module.exports.getCards = async (req, res, next) => {
   try {
     const cards = await Card.find({});
-    res.send({ data: cards });
+    res.send(cards);
   } catch (err) {
     next(err);
   }
@@ -19,7 +19,7 @@ module.exports.createCard = async (req, res, next) => {
     const creatorId = req.user._id;
     const { name, link } = req.body;
     const card = await Card.create({ name, link, owner: creatorId });
-    res.send({ data: card });
+    res.send(card);
   } catch (err) {
     next(err);
   }
@@ -36,7 +36,7 @@ module.exports.deleteCard = (req, res, next) => {
       }
       return card.delete()
         .then(() => {
-          res.status(200).send({ data: card });
+          res.status(200).send(card);
         });
     })
     .catch((err) => {
@@ -60,7 +60,7 @@ module.exports.likeCard = async (req, res, next) => {
       next(new NoDataError(`Карточка с id ${req.params.cardId} не найдена`));
       return;
     }
-    res.send({ message: 'Лайк добавлен' });
+    res.send(card);
   } catch (err) {
     next(err);
   }
@@ -78,7 +78,7 @@ module.exports.dislikeCard = async (req, res, next) => {
       next(new NoDataError(`Карточка с id ${req.params.cardId} не найдена`));
       return;
     }
-    res.send({ message: 'Лайк удален' });
+    res.send(card);
   } catch (err) {
     next(err);
   }

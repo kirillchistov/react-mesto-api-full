@@ -6,6 +6,11 @@ const allowedCors = [
   'https://montecristo.nomoredomains.icu',
   'http://montecristo.nomoredomains.icu',
   'localhost:3000',
+  'localhost:3001',
+  'http://localhost:3001',
+  'https://localhost:3001',
+  'http://localhost:3000',
+  'https://localhost:3000',
 ];
 
 // eslint-disable-next-line consistent-return

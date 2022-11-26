@@ -12,7 +12,7 @@ const handleErrors = require('./utils/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
-  PORT = 3000,
+  PORT = 3001,
   MONGO_DB_URL = 'mongodb://localhost:27017/mestodb',
 } = process.env;
 

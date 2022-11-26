@@ -2,13 +2,13 @@
 //  Переносим сюда создание серверного подключения с токеном  //
 //  В конструкторе получаем baseUrl и заголовки запроса  //
 export default class Api {
-    constructor({ baseUrl, headers }) {
+    constructor({ baseUrl }) {
       this._baseUrl = baseUrl;
-      this._headers = headers;
     }
 
     //  Обрабатываем ответ сервера и, если не ОК, выводим реджектим с ошибкой  //
     _handleServerResponse(res) {
+//        console.log(`res/json: ${res}, ${res.json()}`);  //
         return res.ok ? res.json() : Promise.reject(`Ошибка ответа сервера: ${res.status}`);
     }
 
@@ -21,7 +21,10 @@ export default class Api {
     getProfile() {
         return this._request(`${this._baseUrl}/users/me`, {
             method: "GET",
-            headers: this._headers    
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            },
         })
     }
 
@@ -29,7 +32,10 @@ export default class Api {
     getCards() {
         return this._request(`${this._baseUrl}/cards`, {
             method: "GET",
-            headers: this._headers    
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            },
         })
     }
 
@@ -37,7 +43,10 @@ export default class Api {
     setProfile(obj) {
         return this._request(`${this._baseUrl}/users/me`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            },
             body: JSON.stringify({
                 name: obj.name,
                 about: obj.about
@@ -49,7 +58,10 @@ export default class Api {
     setAvatar(obj) {
         return this._request(`${this._baseUrl}/users/me/avatar`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            },
             body: JSON.stringify({
                 avatar: obj.avatar
             })
@@ -65,7 +77,10 @@ export default class Api {
     addLike(obj) {
         return this._request(`${this._baseUrl}/cards/${obj._id}/likes`, {
             method: "PUT",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            }
         })
     }
 
@@ -73,7 +88,10 @@ export default class Api {
     deleteLike(obj) {
         return this._request(`${this._baseUrl}/cards/${obj._id}/likes`, {
             method: "DELETE",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            }
         })
     }
 
@@ -81,7 +99,10 @@ export default class Api {
     addCard(obj) {
         return this._request(`${this._baseUrl}/cards`, {
             method: "POST",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            },
             body: JSON.stringify({
                 name: obj.name,
                 link: obj.link
@@ -93,18 +114,20 @@ export default class Api {
     deleteCard(obj) {
         return this._request(`${this._baseUrl}/cards/${obj._id}`, {
             method: "DELETE",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            }
         })
     }
 }
 
 export const api = new Api({
 //    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-47',  //
-    baseUrl: 'https://kirmesto.nomoredomains.icu',
-    credentials: 'include',
-    headers: {
-        //  authorization: '7a2b5691-9c91-496f-b370-fd3cc1ce7210',  //
-        'Content-Type': 'application/json'
-    }
+//    baseUrl: 'https://kirmesto.nomoredomains.icu',  //
+    baseUrl: 'http://localhost:3001',
+//    headers: {
+//        'Content-Type': 'application/json'
+//    }
 });
   
