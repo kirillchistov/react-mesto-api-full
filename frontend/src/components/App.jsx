@@ -195,15 +195,65 @@ const App = () => {
   }
 
   //  Обрабатываем лайк: проверяем, есть ли уже лайк и меняем статус  //
-  const handleCardLike = async (card) => {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    try {
-        const resChangeLikeStatus = await api.changeLikeCardStatus(card, !isLiked);
-        setCards((state) => state.map((c) => c._id === card._id ? resChangeLikeStatus : c));
-    } catch (e) {
-      console.log(`Ошибка обработки лайка: ${e}`);
+  //  Отправляем запрос в API и получаем обновлённые данные карточки  //
+  //  Формируем новый массив, подставляя в старый новую карточку с сервера  //
+  //  Записываем новое состояние карты в State и обновляем / рендерим все  //
+  
+  const handleLikeStatus = (card) => {
+    setCards((state) => state.map((c) => c._id === card._id ? card : c));
+  }
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    console.log(`card: ${card.name}, card.likes: ${card.likes}, isLiked: ${isLiked}, ${currentUser._id}`);
+    if (isLiked) {
+      api.deleteLike(card)
+      .then(handleLikeStatus)
+      .catch((err) => {
+        console.log(err);
+      })
+    } else {
+      api.addLike(card)
+      .then(handleLikeStatus)
+      .catch((err) => {
+        console.log(err);
+      })
     }
   }
+
+  /*
+  const handleCardLike = async (card) => {
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    console.log(`card.likes: ${card.likes.length}, isLiked: ${isLiked}, card: ${card}`);
+    try {
+        const resChangeLikeStatus = await api.changeLikeCardStatus(card, !isLiked);
+        console.log(`card.likes: ${card.likes}, isLiked: ${isLiked}, card: ${card}`);
+        setCards((state) => state.map((c) => c._id === card._id ? resChangeLikeStatus : c));
+    } catch (err) {
+      console.log(`Ошибка обработки лайка: ${err}`);
+    }
+  }
+  */
+
+  /*
+  function handleCardLike(card) {
+  // Снова проверяем, есть ли уже лайк на этой карточке
+  // console.log(card.likes)
+    const isLiked = card.likes.some(i => i === currentUser._id);
+
+    // Отправляем запрос в API и получаем обновлённые данные карточки
+    api.changeLikeCardStatus(card, !isLiked)
+        .then(resCard => {
+            // Формируем новый массив на основе имеющегося, подставляя в него новую карточку с сервера
+            // записываем новое состояние карты в State и обновляем / рендерим ВСЕ КАРТОЧКИ
+            setCards((state) => state.map((c) => c._id === card._id ? resCard : c));
+        })
+        .catch((err) => {
+          console.log(`ошибка получения данных по API при Лайке ${err}`);
+        });
+  }
+  */
+
 
   //  Обрабатываем удаление карточки. Сначала проверяем, наша ли карточка   //
   const handleCardDelete = async (card) => {

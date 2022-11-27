@@ -85,8 +85,8 @@ export default class Api {
     }
 
     //  Удаляем лайк карточки с сервера через  DELETE  //
-    deleteLike(obj) {
-        return this._request(`${this._baseUrl}/cards/${obj._id}/likes`, {
+    deleteLike(card) {
+        return this._request(`${this._baseUrl}/cards/${card._id}/likes`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike
   const profileContext = useContext(CurrentUserContext);
   //  Вместо 3 стейт-переменных сделаем одну из контекста  //
   const { name, avatar, about } = profileContext;
-  
+
 //  В галерею карточек вставляем массив карточек с сервера  //
   return (
     <main className="content">
