@@ -68,13 +68,11 @@ module.exports.likeCard = async (req, res, next) => {
 
 //  Минусуем лайк. Если у карточки лайков нет, удаляем id из массива  //
 module.exports.dislikeCard = (req, res, next) => {
-  Card.findByIdAndUpdate(req.params.cardId, {
-    $pull: {
-      likes: req.user._id,
-    },
-  }, {
-    new: true,
-  }).then((cards) => {
+  Card.findByIdAndUpdate(
+    req.params.cardId,
+    { $pull: { likes: req.user._id } },
+    { new: true },
+  ).then((cards) => {
     if (!cards) {
       throw new NoDataError(`Карточка с указанным id: ${req.params.cardId} не найдена.`);
     }
@@ -83,33 +81,6 @@ module.exports.dislikeCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new IncorrectDataError(`Некорректный id: ${req.params.cardId} карточки`));
-      }
-      return next(err);
-    });
-};
-
-/*
-module.exports.dislikeCard = (req, res, next) => {
-  Card.findByIdAndUpdate(
-    req.params.cardId,
-    { $pull: { likes: req.user._id } },
-    { new: true },
-  )
-    .then((card) => {
-      if (!card) {
-        throw new NoDataError(`Карточка с указанным id: ${req.params.cardId} не найдена.`);
-      } else {
-        res.status(200).send(card);
-      }
-    })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        const error = new IncorrectDataError(`Некорректный id: ${req.params.cardId} карточки`);
-        return next(error);
-      }
-      if (err.name === 'ValidationError') {
-        const error = new IncorrectDataError('Переданы некорректные данные для снятия лайка');
-        return next(error);
       }
       return next(err);
     });

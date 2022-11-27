@@ -56,10 +56,10 @@ const App = () => {
         setMessage('Успешная авторизация');
         history.push('/');
       })
-      .catch(e => {
+      .catch(err => {
         setLoggedIn(false);
         setMessage('Что-то не так! Ещё раз.');
-        console.log(`Ошибка авторизации: ${e}`);
+        console.log(`Ошибка авторизации: ${err}`);
       })
       .finally(() => {
         setIsLoading(false);
@@ -78,10 +78,10 @@ const App = () => {
         setMessage('Успешная регистрация!');
         history.push('/sign-in');
       })
-      .catch(e => {
+      .catch(err => {
         setLoggedIn(false);
         setMessage('Что-то не так! Ещё раз.');
-        console.log(`Ошибка регистрации: ${e}`);
+        console.log(`Ошибка регистрации: ${err}`);
       })
       .finally(() => {
           setIsLoading(false);
@@ -104,8 +104,8 @@ const App = () => {
             history.push("/");
           }
         })
-        .catch((e) => {
-          console.log(`Ошибка проверки токена: ${e}`);
+        .catch((err) => {
+          console.log(`Ошибка проверки токена: ${err}`);
         });
     }  
     tokenCheck();
@@ -127,18 +127,17 @@ const App = () => {
         api.getCards()
       ])
         .then(([currentUser, cards]) => {
-          console.log(`${loggedIn}, CurrentUser: ${currentUser}, cards: ${cards}`);
           setCurrentUser(currentUser);
           setCards(cards);
           history.push('/');
         })
-        .catch(e => console.log(`Ошибка первой загрузки: ${e}`))
-  }, [loggedIn]);
+        .catch(err => console.log(`Ошибка первой загрузки: ${err}`))
+  }, [history, loggedIn]);
 
   //  Хук с функцией закрытия попапов при нажатии Escape  //
   useEffect(() => {
-    const closeByEscape = (e) => {
-      if(e.key === 'Escape') {
+    const closeByEscape = (err) => {
+      if(err.key === 'Escape') {
         closeAllPopups();
       }
     }
@@ -157,8 +156,8 @@ const App = () => {
         const avatarChanged = await api.setAvatar(obj);
         setCurrentUser(avatarChanged);
         closeAllPopups();
-    } catch (e) {
-      console.log(`Ошибка обновления аватара: ${e}`);
+    } catch (err) {
+      console.log(`Ошибка обновления аватара: ${err}`);
     } finally {
       setIsLoading(false);
     }
@@ -173,8 +172,8 @@ const App = () => {
       const changedProfile = await api.setProfile(obj);
       setCurrentUser(changedProfile);
       closeAllPopups();
-    } catch (e) {
-      console.log(`Ошибка обновления профиля: ${e}`);
+    } catch (err) {
+      console.log(`Ошибка обновления профиля: ${err}`);
     } finally {
       setIsLoading(false);      
     }
@@ -187,8 +186,8 @@ const App = () => {
         const newPlace = await api.addCard(obj);
         setCards([newPlace, ...cards]);
         closeAllPopups();
-    } catch(e) {
-      console.log(`Ошибка добавления новой карточки: ${e}`);
+    } catch(err) {
+      console.log(`Ошибка добавления новой карточки: ${err}`);
     } finally {
         setIsLoading(false);
     }
@@ -262,8 +261,8 @@ const App = () => {
         await api.deleteCard(card);
         setCards((newArray) => newArray.filter((item) => card._id !== item._id))
         closeAllPopups();
-    } catch (e) {
-      console.log(`Ошибка удаления карточки: ${e}`);
+    } catch (err) {
+      console.log(`Ошибка удаления карточки: ${err}`);
     } finally {
       setIsLoading(false);
     }
