@@ -13,7 +13,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
   PORT = 3001,
-  MONGO_DB_URL = 'mongodb://localhost:27017/mestodb',
+  // MONGO_DB_URL = 'mongodb://localhost:27017/mestodb', //
+  MONGO_DB_URL = 'mongodb://127.0.0.1:27017/mestodb',
 } = process.env;
 
 mongoose.connect(MONGO_DB_URL);
