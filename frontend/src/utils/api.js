@@ -124,8 +124,8 @@ export default class Api {
 
 export const api = new Api({
 //    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-47',  //
-//    baseUrl: 'https://kirmesto.nomoredomains.icu',
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'https://kirmesto.nomoredomains.icu',
+//    baseUrl: 'http://localhost:3001', //
 //    headers: {
 //        'Content-Type': 'application/json'
 //    }
