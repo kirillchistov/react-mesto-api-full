@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-//  const cors = require('cors');  //
-const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const handleCors = require('./middlewares/handleCors');
+// const rateLimit = require('express-rate-limit');  //
+const limiter = require('./middlewares/limiter');
 const router = require('./routes');
 const handleErrors = require('./utils/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -19,13 +19,16 @@ const {
 mongoose.connect(MONGO_DB_URL);
 
 const app = express();
+//  15.1 подключаем логгер запросов  //
+app.use(requestLogger);
 
-const limiter = rateLimit({
+/* const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
   standardHeaders: true,
   legacyHeaders: false,
 });
+*/
 
 //  15.4 Подключаем защиту CORS  //
 app.use(handleCors);
@@ -33,8 +36,6 @@ app.use(limiter);
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
-//  15.1 подключаем логгер запросов  //
-app.use(requestLogger);
 //  15.8 подключаем краш-тест сервера  //
 app.get('/crash-test', () => {
   setTimeout(() => {

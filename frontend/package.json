@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "depcheck": "^1.4.3",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,7 +22,6 @@
     "predeploy": "npm run build",
     "ghDeploy": "gh-pages -d build",
     "deploy": "npm run build && scp -r ./build/* kirillchistov@62.84.123.141:/home/kirillchistov/react-mesto-api-full/frontend/build"
-
   },
   "eslintConfig": {
     "extends": [
@@ -55,7 +55,7 @@
   },
   "homepage": "./",
   "devDependencies": {
-    "nodemon": "^2.0.20",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "nodemon": "^2.0.20"
   }
 }
