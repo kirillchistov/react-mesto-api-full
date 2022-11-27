@@ -4,8 +4,8 @@
 //  Если fetch вернул data, возвращаем json  //
 
 //  const BASE_URL = 'https://auth.nomoreparties.co';  //
-//  const BASE_URL = 'https://kirmesto.nomoredomains.icu';  //
-const BASE_URL = 'http://localhost:3001';  
+const BASE_URL = 'https://kirmesto.nomoredomains.icu';
+//  const BASE_URL = 'http://localhost:3001';  //
 
 const request = async ({
   url,
