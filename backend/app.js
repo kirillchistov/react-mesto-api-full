@@ -23,14 +23,6 @@ const app = express();
 //  15.1 подключаем логгер запросов  //
 app.use(requestLogger);
 
-/* const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-*/
-
 //  15.4 Подключаем защиту CORS  //
 app.use(handleCors);
 app.use(limiter);
@@ -38,11 +30,12 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 //  15.8 подключаем краш-тест сервера  //
-app.get('/crash-test', () => {
+/* app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+*/
 app.use('/', router);
 //  15.1 подключаем логгер ошибок  //
 app.use(errorLogger);

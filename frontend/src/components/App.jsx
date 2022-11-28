@@ -75,11 +75,14 @@ const App = () => {
     auth.register(email, password)
       .then((res) => {
         setMessage('Успешная регистрация!');
+        setLoggedIn(true);
         history.push('/sign-in');
+        setLoggedIn(false);
       })
       .catch(err => {
         setMessage('Что-то не так! Ещё раз.');
         console.log(`Ошибка регистрации: ${err}`);
+        setLoggedIn(false);
       })
       .finally(() => {
           setIsLoading(false);
